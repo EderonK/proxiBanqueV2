@@ -11,4 +11,11 @@ public class Gerant extends Utilisateur
 	{
 		this("0000", "mdp", "prenom", "nom");
 	}
+
+	@Override
+	public String toString() {
+		return "Gerant [getIdentifiant()=" + getIdentifiant() + ", getMotDePasse()=" + getMotDePasse()
+				+ ", getPrenom()=" + getPrenom() + ", getNom()=" + getNom() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 }

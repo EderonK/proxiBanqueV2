@@ -8,6 +8,5 @@ public class test
 		DAOGerant dao = new DAOGerant();
 		
 		System.out.println(dao.toutLireElement());
-	}
-
+	}	
 }
