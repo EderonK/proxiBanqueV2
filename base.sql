@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 25 juil. 2018 à 13:16
+-- Généré le :  mer. 25 juil. 2018 à 14:57
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `bdtemporaire`
+-- Base de données :  `proxibanque`
 --
 CREATE DATABASE IF NOT EXISTS `proxibanque` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `proxibanque`;
@@ -39,8 +39,16 @@ CREATE TABLE IF NOT EXISTS `client` (
   `email` varchar(30) NOT NULL,
   `idConseiller` varchar(20) NOT NULL,
   PRIMARY KEY (`idClient`),
-  INDEX `idConseiller` (`idConseiller`)
+  KEY `idConseiller` (`idConseiller`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`idClient`, `Nom`, `Prenom`, `Adresse`, `email`, `idConseiller`) VALUES
+(1, 'Martin', 'Jean', '5 chemin de la Crabe, 31200 Toulouse', 'jean.martin@objis.com', 'c1'),
+(2, 'Alonzo', 'Helena', '12 place de la gare, Seville', 'helena.alonzo@sogeti.es', 'c1');
 
 -- --------------------------------------------------------
 
@@ -57,8 +65,16 @@ CREATE TABLE IF NOT EXISTS `comptecourant` (
   `decouvertMax` float NOT NULL,
   `idClient` int(20) NOT NULL,
   PRIMARY KEY (`numCompte`),
-  INDEX `idClient` (`idClient`)
+  KEY `idClient` (`idClient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `comptecourant`
+--
+
+INSERT INTO `comptecourant` (`numCompte`, `solde`, `dateOuverture`, `carteBancaire`, `decouvertMax`, `idClient`) VALUES
+('123', 1000, '01/02/16', '1200021', 2000, 2),
+('d66d4', 23, '16/10/15', 'f444fe', 100, 1);
 
 -- --------------------------------------------------------
 
@@ -75,8 +91,16 @@ CREATE TABLE IF NOT EXISTS `compteepargne` (
   `tauxRemuneration` float NOT NULL,
   `idClient` int(20) NOT NULL,
   PRIMARY KEY (`numCompte`),
-  INDEX `idClient` (`idClient`)
+  KEY `idClient` (`idClient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `compteepargne`
+--
+
+INSERT INTO `compteepargne` (`numCompte`, `solde`, `dateOuverture`, `carteBancaire`, `tauxRemuneration`, `idClient`) VALUES
+('455', 32566, '30/09/10', 'sxdd08', 5, 2),
+('mlls56', 5000, '23/06/18', 'j200jh', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -93,6 +117,14 @@ CREATE TABLE IF NOT EXISTS `conseiller` (
   PRIMARY KEY (`identifiant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `conseiller`
+--
+
+INSERT INTO `conseiller` (`identifiant`, `Nom`, `Prenom`, `motDePasse`) VALUES
+('c1', 'Smith', 'Dan', 'monmotdepasse'),
+('c2', 'Howard', 'Bill', 'mypassword');
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +139,13 @@ CREATE TABLE IF NOT EXISTS `gerant` (
   `motDePasse` varchar(20) NOT NULL,
   PRIMARY KEY (`identifiant`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `gerant`
+--
+
+INSERT INTO `gerant` (`identifiant`, `Nom`, `Prenom`, `motDePasse`) VALUES
+('5', 'Michel', 'Herve', 'supermdp');
 
 --
 -- Contraintes pour les tables déchargées
