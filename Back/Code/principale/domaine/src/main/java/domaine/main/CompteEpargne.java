@@ -28,4 +28,12 @@ public class CompteEpargne extends Compte
 	{
 		this.tauxRemuneration = tauxRemuneration;
 	}
+
+	@Override
+	public String toString() {
+		return "CompteEpargne [tauxRemuneration=" + tauxRemuneration + ", getNumCompte()=" + getNumCompte()
+				+ ", getSolde()=" + getSolde() + ", getDateOuverture()=" + getDateOuverture() + ", getCarteBancaire()="
+				+ getCarteBancaire() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
 }

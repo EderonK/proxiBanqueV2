@@ -10,5 +10,8 @@ public class test
 		System.out.println("--------------------------------------------------------------------------------");
 		DAOCompteEpargne daoCompteEpargne = new DAOCompteEpargne();
 		System.out.println(daoCompteEpargne.toutLireElement());
+		System.out.println("--------------------------------------------------------------------------------");
+		DAOCompteCourant daoCompteCourant = new DAOCompteCourant();
+		System.out.println(daoCompteCourant.toutLireElement());
 	}	
 }

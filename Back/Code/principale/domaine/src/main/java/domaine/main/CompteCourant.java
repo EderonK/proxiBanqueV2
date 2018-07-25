@@ -28,4 +28,12 @@ public class CompteCourant extends Compte
 	{
 		this.decouvertMax = decouvertMax;
 	}
+
+	@Override
+	public String toString() {
+		return "CompteCourant [decouvertMax=" + decouvertMax + ", getNumCompte()=" + getNumCompte() + ", getSolde()="
+				+ getSolde() + ", getDateOuverture()=" + getDateOuverture() + ", getCarteBancaire()="
+				+ getCarteBancaire() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
 }
