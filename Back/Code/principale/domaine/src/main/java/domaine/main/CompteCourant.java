@@ -14,8 +14,7 @@ public class CompteCourant extends Compte
 	
 	public CompteCourant()
 	{
-		super("numCompte", 0.0, "dateOuverture", "carteBancaire");
-		this.decouvertMax = 0.0;
+		this("numCompte", 0.0, "dateOuverture", "carteBancaire", 0.0);
 	}
 
 	//Gets and Sets
@@ -33,7 +32,6 @@ public class CompteCourant extends Compte
 	public String toString() {
 		return "CompteCourant [decouvertMax=" + decouvertMax + ", getNumCompte()=" + getNumCompte() + ", getSolde()="
 				+ getSolde() + ", getDateOuverture()=" + getDateOuverture() + ", getCarteBancaire()="
-				+ getCarteBancaire() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ getCarteBancaire() + "]";
 	}
 }

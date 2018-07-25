@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Client
 {	
 	//Attributs
-	private String idClient;
+	private int idClient;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -13,7 +13,7 @@ public class Client
 	private ArrayList<Compte> listComptes;
 	
 	//Constructeurs
-	public Client(String idClient, String nom, String prenom, String adresse, String email,
+	public Client(int idClient, String nom, String prenom, String adresse, String email,
 			ArrayList<Compte> listComptes)
 	{
 		this.idClient = idClient;
@@ -24,12 +24,17 @@ public class Client
 		this.listComptes = listComptes;
 	}
 
+	public Client()
+	{
+		this(0, "nom", "prenom", "adresse", "email", new ArrayList<Compte>());
+	}
+
 	//Gets and Sets
-	public String getIdClient() {
+	public int getIdClient() {
 		return idClient;
 	}
 
-	public void setIdClient(String idClient) {
+	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
 
@@ -71,5 +76,11 @@ public class Client
 
 	public void setListComptes(ArrayList<Compte> listComptes) {
 		this.listComptes = listComptes;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
+				+ ", email=" + email + ", listComptes=" + listComptes + "]";
 	}
 }

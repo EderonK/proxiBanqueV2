@@ -69,9 +69,7 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 		{
 			e.printStackTrace();
 		}
-		
-		
-		
+				
 		return element;
 	}
 	

@@ -14,8 +14,7 @@ public class CompteEpargne extends Compte
 	
 	public CompteEpargne()
 	{
-		super("numCompte", 0.0, "dateOuverture", "carteBancaire");
-		this.tauxRemuneration = 0;
+		this("numCompte", 0.0, "dateOuverture", "carteBancaire", 0);
 	}
 
 	//Gets and Sets
@@ -33,7 +32,6 @@ public class CompteEpargne extends Compte
 	public String toString() {
 		return "CompteEpargne [tauxRemuneration=" + tauxRemuneration + ", getNumCompte()=" + getNumCompte()
 				+ ", getSolde()=" + getSolde() + ", getDateOuverture()=" + getDateOuverture() + ", getCarteBancaire()="
-				+ getCarteBancaire() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ getCarteBancaire()+ "]";
 	}
 }
