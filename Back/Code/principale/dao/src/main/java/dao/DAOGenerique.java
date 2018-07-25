@@ -99,6 +99,30 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 		return elements;
 	}
 	
+	public ArrayList<String> toutLireClefsEtrangeres()
+	{
+		String requete = "SELECT * FROM " + this.getNomTable() + ";";
+		ResultSet rs = this.executeQuery(requete);
+		
+		ArrayList<String> clefs = new ArrayList<String>();
+		
+		try
+		{
+			while(rs.next())
+			{
+				clefs.add(""+ this.traitementLectureClefEtrangere(rs));
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		this.fermerConnection();
+		
+		return clefs;
+	}
+	
 	public void modifierElementById(int id, ElementBase element)
 	{
 		String requete = "UPDATE " + this.getNomTable() +" SET "+ this.getUpdate(element) + " WHERE id=" + id + ";";
@@ -116,4 +140,5 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 	public abstract String getValeurs(ElementBase element);
 	public abstract String getUpdate(ElementBase element);
 	public abstract ElementBase traitementLectureElement(ResultSet rs);
+	public abstract String traitementLectureClefEtrangere(ResultSet rs);
 }

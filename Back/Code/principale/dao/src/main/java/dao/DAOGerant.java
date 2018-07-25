@@ -45,6 +45,12 @@ public class DAOGerant extends DAOGenerique<Gerant>
 	}
 	
 	@Override
+	public String traitementLectureClefEtrangere(ResultSet rs)
+	{
+		return null;
+	}
+	
+	@Override
 	public String getValeurs(Gerant gerant)
 	{
 		return "('" + gerant.getIdentifiant() + "', '" + gerant.getMotDePasse() +  "', '" + gerant.getPrenom() + "', " + gerant.getNom() +")";

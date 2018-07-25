@@ -3,9 +3,9 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import domaine.main.Gerant;
+import domaine.main.CompteCourant;
 
-public class DAOCompteCourant extends DAOGenerique<Gerant>
+public class DAOCompteCourant extends DAOGenerique<CompteCourant>
 {	
 	public DAOCompteCourant()
 	{
@@ -15,44 +15,59 @@ public class DAOCompteCourant extends DAOGenerique<Gerant>
 	@Override
 	public String getNomTable()
 	{
-		return "gerant";
+		return "compteCourant";
 	}
 	
 	@Override
 	public String getAttributs()
 	{
-		return "(identifiant, motDePasse, prenom, nom)";
+		return "(numCompte, solde, dateOuverture, carteBancaire, decouvertMax, idClient)";
 	}
 
 	@Override
-	public Gerant traitementLectureElement(ResultSet rs)
+	public CompteCourant traitementLectureElement(ResultSet rs)
 	{
 
-		Gerant gerant = new Gerant();
+		CompteCourant compteCourant = new CompteCourant();
 		try
 		{
-			gerant.setIdentifiant(rs.getString("identifiant"));
-			gerant.setMotDePasse(rs.getString("motDePasse"));
-			gerant.setPrenom(rs.getString("prenom"));
-			gerant.setNom(rs.getString("nom"));
+			compteCourant.setNumCompte(rs.getString("numCompte"));
+			compteCourant.setSolde(rs.getDouble("solde"));
+			compteCourant.setDateOuverture(rs.getString("dateOuverture"));
+			compteCourant.setCarteBancaire(rs.getString("carteBancaire"));
+			compteCourant.setDecouvertMax(rs.getDouble("decouvertMax"));
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
 		
-		return gerant;	
+		return compteCourant;	
 	}
 	
 	@Override
-	public String getValeurs(Gerant gerant)
+	public String traitementLectureClefEtrangere(ResultSet rs)
 	{
-		return "('" + gerant.getIdentifiant() + "', '" + gerant.getMotDePasse() +  "', '" + gerant.getPrenom() + "', " + gerant.getNom() +")";
+		try
+		{
+			return rs.getString("idClient");
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;	
+	}
+	
+	@Override
+	public String getValeurs(CompteCourant compteCourant)
+	{
+		return "('" + compteCourant.getNumCompte() + "', '" + compteCourant.getSolde() +  "', '" + compteCourant.getDateOuverture() + "', " + compteCourant.getCarteBancaire() + "', " + compteCourant.getDecouvertMax() +")";
 	}
 
 	@Override
-	public String getUpdate(Gerant gerant)
+	public String getUpdate(CompteCourant compteCourant)
 	{
-		return "nom = '" + gerant.getIdentifiant() + "', prenom =  '" + gerant.getMotDePasse() + "', clan =  '" + gerant.getPrenom() + "', etreinte =  " + gerant.getNom();		
+		return "nom = '" + compteCourant.getNumCompte() + "', prenom =  '" + compteCourant.getSolde() + "', clan =  '" + compteCourant.getDateOuverture() + "', etreinte =  " + compteCourant.getCarteBancaire() + "', etreinte =  " + compteCourant.getDecouvertMax();		
 	}
 }

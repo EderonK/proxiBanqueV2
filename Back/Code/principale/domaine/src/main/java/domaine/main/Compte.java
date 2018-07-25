@@ -1,17 +1,15 @@
 package domaine.main;
 
-import java.util.Date;
-
 public abstract class Compte
 {
 	//Attributs
 	private String numCompte;
 	private double solde;
-	private Date dateOuverture;
+	private String dateOuverture;
 	private String carteBancaire;
 	
 	//Constructeurs
-	public Compte(String numCompte, double solde, Date dateOuverture, String carteBancaire)
+	public Compte(String numCompte, double solde, String dateOuverture, String carteBancaire)
 	{
 		this.numCompte = numCompte;
 		this.solde = solde;
@@ -30,7 +28,7 @@ public abstract class Compte
 		return solde;
 	}
 
-	public Date getDateOuverture()
+	public String getDateOuverture()
 	{
 		return dateOuverture;
 	}
@@ -45,7 +43,7 @@ public abstract class Compte
 		this.solde = solde;
 	}
 
-	public void setDateOuverture(Date dateOuverture)
+	public void setDateOuverture(String dateOuverture)
 	{
 		this.dateOuverture = dateOuverture;
 	}
