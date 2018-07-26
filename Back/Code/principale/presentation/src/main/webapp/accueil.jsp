@@ -73,7 +73,7 @@
 								 <%=compte.getSolde()%> 
 							<%}}%>
 							</td>
-							<td><a href="detail-client.jsp">Détail client</a></td>
+							<td><a href="Comptes?id=<%=i%>" method=get>Détail client</a></td>
 						</tr>
 						<%   i =i+1; }%>
 						

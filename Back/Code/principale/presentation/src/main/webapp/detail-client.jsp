@@ -1,3 +1,7 @@
+<%@ page  import= "java.util.ArrayList" %>
+<%@ page  import= "domaine.main.Client" %>
+<%@ page  import= "domaine.main.Compte" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +49,10 @@
 		<!-- end navbar-collapse -->
 	</div>
 	<!-- end navbar -->
-
+<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
+<%String numero = (String) session.getAttribute( "idClient" ) ; %>
+<%int num= Integer.parseInt(numero);  %>
+<%num=num-1; %>
 	<div class="container">
 		<div class="card mb-3">
 			<div class="card-header card-header-custom text-center">
@@ -55,7 +62,8 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">Id</th>
+						
+							<th scope="col"></th>
 							<th scope="col">Prénom</th>
 							<th scope="col">Nom</th>
 							<th scope="col">Adresse</th>
@@ -65,10 +73,10 @@
 					<tbody>
 						<tr>
 							<th scope="row">1</th>
-							<td>Xuxu 1</td>
-							<td>XAXA 1</td>
-							<td>75000</td>
-							<td>abc@gmail.com</td>
+							<td><%=listeClient.get(num).getPrenom()%></td>
+							<td><%=listeClient.get(num).getNom()%></td>
+							<td><%=listeClient.get(num).getAdresse()%></td>
+							<td><%=listeClient.get(num).getEmail()%></td>
 						</tr>
 
 					</tbody>

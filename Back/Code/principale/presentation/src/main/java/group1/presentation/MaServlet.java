@@ -51,20 +51,18 @@ import domaine.main.Utilisateur;
 		// Etape 2 : Soumettre les paramètres de la requête à la couche service et récupérer résultat
 		
 			
+
 		
 		IdentificationService identificationService = new IdentificationService();
 		
+
 		
 		Conseiller conseiller = (Conseiller) identificationService.verficationMotDePasse(login, pwd);
-		
+
 		ClientService clientService = new ClientService();
-		
-		
-		
-		
-		
+	
 		HttpSession maSession = request.getSession();		
-		
+
 		
 	
 		// Etape 3 : Réponse à l'utilisateur
