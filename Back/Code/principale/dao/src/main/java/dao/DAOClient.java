@@ -92,4 +92,10 @@ public class DAOClient extends DAOGenerique<Client>
 	{
 		return "nom = '" + client.getIdClient() + "', prenom =  '" + client.getNom() + "', clan =  '" + client.getPrenom() + "', etreinte =  " + client.getAdresse() + "', etreinte =  " + client.getEmail();		
 	}
+
+	@Override
+	public String getNomIdentifiant()
+	{
+		return "idClient";
+	}
 }

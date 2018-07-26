@@ -47,4 +47,10 @@ public abstract class DAOUtilisateur<Utilisateur> extends DAOGenerique<Utilisate
 	{
 		return "nom = '" + ((domaine.main.Utilisateur) utilisateur).getIdentifiant() + "', prenom =  '" + ((domaine.main.Utilisateur) utilisateur).getMotDePasse() + "', clan =  '" + ((domaine.main.Utilisateur) utilisateur).getPrenom() + "', etreinte =  " + ((domaine.main.Utilisateur) utilisateur).getNom();		
 	}
+	
+	@Override
+	public String getNomIdentifiant()
+	{
+		return "identifiant";
+	}
 }

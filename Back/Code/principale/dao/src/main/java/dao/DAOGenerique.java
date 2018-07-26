@@ -52,9 +52,9 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 		this.executeUpdate(requete);
 	}
 	
-	public ElementBase lireElementById(int id)
+	public ElementBase lireElementById(String id)
 	{
-		String requete = "SELECT * FROM " + this.getNomTable() +" WHERE id=" + id + ";";		
+		String requete = "SELECT * FROM " + this.getNomTable() +" WHERE " + this.getNomIdentifiant() + "=" + id + ";";		
 		ResultSet rs = this.executeQuery(requete);
 		
 		ElementBase element = null;
@@ -133,6 +133,7 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 		this.executeUpdate(requete);
 	}
 	
+	public abstract String getNomIdentifiant();
 	public abstract String getNomTable();
 	public abstract String getAttributs();
 	public abstract String getValeurs(ElementBase element);
