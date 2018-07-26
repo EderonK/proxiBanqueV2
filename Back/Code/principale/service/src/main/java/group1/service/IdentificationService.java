@@ -8,10 +8,14 @@ import domaine.main.Utilisateur;
 
 public class IdentificationService
 {
-	DAOConseiller daoConseiller = new DAOConseiller();
-	DAOGerant daoGerant;	
+	private DAOConseiller daoConseiller;
+	private DAOGerant daoGerant;
 	
-	
+	public IdentificationService()
+	{
+		this.daoConseiller = new DAOConseiller();
+		this.daoGerant = new DAOGerant();
+	}
 	
 	public Utilisateur verficationMotDePasse(String id, String mdp)
 	{
@@ -22,7 +26,7 @@ public class IdentificationService
 				return gerant;
 			}		
 		}
-		
+
 		for(Conseiller conseiller : this.daoConseiller.toutLireElement())
 		{
 			if(conseiller.getIdentifiant().equals(id) && conseiller.getMotDePasse().equals(mdp))
@@ -30,7 +34,7 @@ public class IdentificationService
 				return conseiller;
 			}
 		}
-		
+
 		return null;
 	}	
 }
