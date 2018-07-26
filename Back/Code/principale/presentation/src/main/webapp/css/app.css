@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.navbar-custom {
+	background-color: #19594D !important;
+}
+
+.card-header-custom {
+	background-color: #F2E7C4 !important;
+}
+
+.footer-custom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background-color: #727A8C;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 330px;
+	margin: 30px auto;
+}
+
+.form-virement {
+	width: 100%;
+	max-width: 800px;
+	margin: 30px auto;
+}
+
+.form-edition {
+	width: 100%;
+	max-width: 800px;
+	margin: 30px auto;
+}
+
+.form-edition {
+	width: 100%;
+	margin: 30px auto;
+}
