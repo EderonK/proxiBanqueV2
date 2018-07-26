@@ -8,8 +8,11 @@ import domaine.main.Utilisateur;
 
 public class IdentificationService
 {
+
+
 	private DAOConseiller daoConseiller;
 	private DAOGerant daoGerant;
+
 	
 	public IdentificationService()
 	{
