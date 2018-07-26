@@ -8,6 +8,12 @@ import domaine.main.Conseiller;
 public class DAOConseiller extends DAOUtilisateur<Conseiller>
 {
 	@Override
+	public String getNomTable()
+	{
+		return "conseiller";
+	}
+	
+	@Override
 	public Conseiller traitementLectureElement(ResultSet rs)
 	{
 

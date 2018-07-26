@@ -15,7 +15,6 @@ public class Gerant extends Utilisateur
 	@Override
 	public String toString() {
 		return "Gerant [getIdentifiant()=" + getIdentifiant() + ", getMotDePasse()=" + getMotDePasse()
-				+ ", getPrenom()=" + getPrenom() + ", getNom()=" + getNom() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", getPrenom()=" + getPrenom() + ", getNom()=" + getNom() + "]";
 	}
 }

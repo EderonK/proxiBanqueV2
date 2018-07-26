@@ -15,7 +15,7 @@ public abstract class DAOUtilisateur<Utilisateur> extends DAOGenerique<Utilisate
 	@Override
 	public String getNomTable()
 	{
-		return "conseiller";
+		return null;
 	}
 	
 	@Override

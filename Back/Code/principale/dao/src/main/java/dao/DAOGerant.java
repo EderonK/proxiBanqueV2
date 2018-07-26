@@ -8,6 +8,12 @@ import domaine.main.Gerant;
 public class DAOGerant extends DAOUtilisateur<Gerant>
 {
 	@Override
+	public String getNomTable()
+	{
+		return "gerant";
+	}
+	
+	@Override
 	public Gerant traitementLectureElement(ResultSet rs)
 	{
 
@@ -23,7 +29,6 @@ public class DAOGerant extends DAOUtilisateur<Gerant>
 		{
 			e.printStackTrace();
 		}
-		
 		return gerant;	
 	}
 }
