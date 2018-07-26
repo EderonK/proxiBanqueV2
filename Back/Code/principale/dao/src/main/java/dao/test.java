@@ -4,6 +4,7 @@ import domaine.main.Client;
 import domaine.main.CompteCourant;
 import domaine.main.CompteEpargne;
 import domaine.main.Gerant;
+import domaine.main.Virement;
 import domaine.main.Conseiller;;
 
 public class test
@@ -38,6 +39,12 @@ public class test
 		for(Conseiller conseiller : daoConseiller.toutLireElement())
 		{
 			System.out.println(conseiller);
+		}
+		System.out.println("--------------------------------------------------------------------------------");
+		DAOVirement daoVirement = new DAOVirement();
+		for(Virement virement : daoVirement.toutLireElement())
+		{
+			System.out.println(virement);
 		}
 	}	
 }
