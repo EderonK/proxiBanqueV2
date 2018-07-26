@@ -48,28 +48,39 @@ import domaine.main.Conseiller;
 		
 			
 		ConseillerService conseillerService = new ConseillerService();	
+		IdentificationService identificationService = new IdentificationService();
 		
-		Conseiller conseiller = conseillerService.recupererConseillerParId(1);
+		Conseiller conseiller = identificationService.
 		
 		ClientService clientService = new ClientService();
-		ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
 		
 		
-		for (Client client : listeClient) {
-		System.out.println(client);}
 		
 		
-		/*HttpSession maSession = request.getSession();		
-		maSession.setAttribute("listeClient", listeClient);*/
 		
-		// UserService userService = new UserService();
-		// boolean userValid = userService.verifUser (user) ;-
-		// maSession.setAttribute("validUser", userValid);
+		HttpSession maSession = request.getSession();		
 		
+		
+	
 		// Etape 3 : Réponse à l'utilisateur
-		/*RequestDispatcher   dispatcher = request.getRequestDispatcher("resultatLogin.jsp");
+		RequestDispatcher   dispatcher = request.getRequestDispatcher("resultatLogin.jsp");
 		dispatcher.forward(request, response);
-		*/
+		
+		
+
+		
+		
+		if (conseiller!= null) {
+			ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
+			
+			maSession.setAttribute("listeClient", listeClient);
+			dispatcher = request.getRequestDispatcher("acceuil.jsp");
+			
+			
+			
+		} else {
+			dispatcher = request.getRequestDispatcher("index.jsp");
+		}
 		}
 
 	}

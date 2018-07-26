@@ -10,7 +10,7 @@ public class test {
 	public static void main(String[] args) {
 	ConseillerService conseillerService = new ConseillerService();	
 		
-		Conseiller conseiller = conseillerService.recupererConseillerParId(1);
+		Conseiller conseiller = conseillerService.recupererConseillerParId("1");
 		
 		ClientService clientService = new ClientService();
 		ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);

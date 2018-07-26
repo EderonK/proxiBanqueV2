@@ -70,4 +70,10 @@ public class DAOCompteCourant extends DAOGenerique<CompteCourant>
 	{
 		return "nom = '" + compteCourant.getNumCompte() + "', prenom =  '" + compteCourant.getSolde() + "', clan =  '" + compteCourant.getDateOuverture() + "', etreinte =  " + compteCourant.getCarteBancaire() + "', etreinte =  " + compteCourant.getDecouvertMax();		
 	}
+	
+	@Override
+	public String getNomIdentifiant()
+	{
+		return "numCompte";
+	}
 }

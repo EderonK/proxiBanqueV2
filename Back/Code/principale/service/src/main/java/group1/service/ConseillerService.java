@@ -8,7 +8,7 @@ public class ConseillerService {
 	
 	DAOConseiller daoConseiller = new DAOConseiller();
 	
-	public Conseiller recupererConseillerParId(int id) {
+	public Conseiller recupererConseillerParId(String id) {
 		return daoConseiller.lireElementById(id);
 	}
 

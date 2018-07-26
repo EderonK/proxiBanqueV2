@@ -70,4 +70,10 @@ public class DAOCompteEpargne extends DAOGenerique<CompteEpargne>
 	{
 		return "nom = '" + compteEpargne.getNumCompte() + "', prenom =  '" + compteEpargne.getSolde() + "', clan =  '" + compteEpargne.getDateOuverture() + "', etreinte =  " + compteEpargne.getCarteBancaire() + "', etreinte =  " + compteEpargne.getTauxRemuneration();		
 	}
+	
+	@Override
+	public String getNomIdentifiant()
+	{
+		return "numCompte";
+	}
 }
