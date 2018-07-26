@@ -9,7 +9,7 @@ import domaine.main.Utilisateur;
 public class IdentificationService
 {
 	DAOConseiller daoConseiller = new DAOConseiller();
-	DAOGerant daoGerant;	
+	DAOGerant daoGerant = new DAOGerant();	
 	
 	
 	

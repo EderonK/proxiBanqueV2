@@ -51,9 +51,9 @@ import domaine.main.Utilisateur;
 		// Etape 2 : Soumettre les paramètres de la requête à la couche service et récupérer résultat
 		
 			
-		System.out.println("plop1");
+		
 		IdentificationService identificationService = new IdentificationService();
-		System.out.println("plop2");
+		
 		
 		Conseiller conseiller = (Conseiller) identificationService.verficationMotDePasse(login, pwd);
 		
@@ -68,22 +68,24 @@ import domaine.main.Utilisateur;
 		
 	
 		// Etape 3 : Réponse à l'utilisateur
-		RequestDispatcher   dispatcher ;
 		
+		RequestDispatcher dispatcher;
 
 		
 		
 		if (conseiller!= null) {
 			ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
 			
+			
 			maSession.setAttribute("listeClient", listeClient);
-			dispatcher = request.getRequestDispatcher("acceuil.jsp");
+			 dispatcher = request.getRequestDispatcher("accueil.jsp");
 			
 			
 			
 		} else {
-			dispatcher = request.getRequestDispatcher("index.jsp");
+			 dispatcher = request.getRequestDispatcher("index.jsp");
 		}
+		dispatcher.forward(request, response);
 		}
 
 	}

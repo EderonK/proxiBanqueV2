@@ -1,5 +1,7 @@
 <%@ page  import= "java.util.ArrayList" %>
 <%@ page  import= "domaine.main.Client" %>
+<%@ page  import= "domaine.main.Compte" %>
+<%@ page  import= "domaine.main.CompteCourant" %>
 
 <!DOCTYPE html>
 <html>
@@ -25,16 +27,16 @@
 		<div class="flex-column collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav nav-fill w-100">
 				<li class="nav-item"><a class="navbar-brand" href="index.jsp">
-						<img src="img/logo.png" width="30" height="30">
+						<img src="img/logo.png" width="120" height="60">
 				</a></li>
 				<li class="nav-item w-75"><a class="navbar-brand"
 					href="index.jsp">PROXIBANQUE</a></li>
 				<li class="nav-item"><span class="navbar-text">Bonjour
-						toto</span></li>
+						Douglas</span></li>
 			</ul>
 			<ul class="navbar-nav nav-fill w-100">
 				<li class="nav-item w-75"><a class="navbar-brand"
-					href="index.html">Liste des clients</a></li>
+					href="index.html"></a></li>
 				<li class="nav-item w-25"><span id="dateTimeText"
 					class="navbar-text"></span></li>
 			</ul>
@@ -43,10 +45,9 @@
 	</div>
 	<!-- end navbar -->
 <%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
-
 	<div class="container">
 		<div class="card">
-			<div class="card-header card-header-custom">
+			<div class="card-header card-header-custom text-center">
 				<h4>Liste des clients</h4>
 			</div>
 			<div class="card-body">
@@ -60,15 +61,21 @@
 						</tr>
 					</thead>
 					<tbody>
-					<%int i =0;%>
+						<%int i =1;%>
 					<% for(Client client : listeClient){%>
 						<tr>
-							<th scope="row">i</th>
-							<td>client.getPrenom();</td>
-							<td>client.Nom();</td>
-							<td>test</td>
+							<th scope="row"><%=i %></th>
+							<td><%= client.getPrenom()%></td>
+							<td><%=client.getNom()%> </td>
+							<td><%ArrayList<Compte> listComptes=client.getListComptes();%>
+							<% for(Compte compte: listComptes){%>
+								<%if (compte instanceof CompteCourant){%>
+								 <%=compte.getSolde()%> 
+							<%}}%>
+							</td>
+							<td><a href="detail-client.jsp">Détail client</a></td>
 						</tr>
-						<%i =i+1;}%>
+						<%   i =i+1; }%>
 						
 						</tr>
 					</tbody>
