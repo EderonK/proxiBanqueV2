@@ -8,16 +8,12 @@ import domaine.main.Utilisateur;
 
 public class IdentificationService
 {
-	DAOConseiller daoConseiller;
+	DAOConseiller daoConseiller = new DAOConseiller();
 	DAOGerant daoGerant;	
 	
-	IdentificationService()
-	{
-		this.daoConseiller = new DAOConseiller();
-		//this.daoGerant = new DAOGerant();
-	}
 	
-	Utilisateur verficationMotDePasse(String id, String mdp)
+	
+	public Utilisateur verficationMotDePasse(String id, String mdp)
 	{
 		for(Gerant gerant : this.daoGerant.toutLireElement())
 		{

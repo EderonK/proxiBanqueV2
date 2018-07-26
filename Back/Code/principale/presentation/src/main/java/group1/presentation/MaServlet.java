@@ -1,4 +1,4 @@
-package group1.service;
+package group1.presentation;
 
 import java.io.IOException;
 
@@ -14,6 +14,10 @@ import javax.servlet.http.HttpSession;
 
 import domaine.main.Client;
 import domaine.main.Conseiller;
+import group1.service.ClientService;
+
+import group1.service.IdentificationService;
+import domaine.main.Utilisateur;
 
 
 	
@@ -41,16 +45,17 @@ import domaine.main.Conseiller;
 
 		// Etape 1 : Récupération des paramètres de la requête
 		
-		/*String login = request.getParameter("usernameInput");
+		String login = request.getParameter("usernameInput");
 		String pwd = request.getParameter("passwordInput");
-		*/
+		
 		// Etape 2 : Soumettre les paramètres de la requête à la couche service et récupérer résultat
 		
 			
-		ConseillerService conseillerService = new ConseillerService();	
+		System.out.println("plop1");
 		IdentificationService identificationService = new IdentificationService();
+		System.out.println("plop2");
 		
-		Conseiller conseiller = identificationService.
+		Conseiller conseiller = (Conseiller) identificationService.verficationMotDePasse(login, pwd);
 		
 		ClientService clientService = new ClientService();
 		
@@ -63,9 +68,7 @@ import domaine.main.Conseiller;
 		
 	
 		// Etape 3 : Réponse à l'utilisateur
-		RequestDispatcher   dispatcher = request.getRequestDispatcher("resultatLogin.jsp");
-		dispatcher.forward(request, response);
-		
+		RequestDispatcher   dispatcher ;
 		
 
 		
