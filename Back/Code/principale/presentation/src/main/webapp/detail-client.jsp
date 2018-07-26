@@ -1,6 +1,8 @@
 <%@ page  import= "java.util.ArrayList" %>
 <%@ page  import= "domaine.main.Client" %>
 <%@ page  import= "domaine.main.Compte" %>
+<%@ page  import= "domaine.main.CompteCourant" %>
+<%@ page  import= "domaine.main.CompteEpargne" %>
 
 <!DOCTYPE html>
 <html>
@@ -87,7 +89,17 @@
 						<div class="card">
 							<div class="card-body">
 								<h5>Compte courant</h5>
-								<p>Numéro compte : 1234567890</p>
+								<%ArrayList<Compte> listeCompte=listeClient.get(num).getListComptes();%>
+								<%CompteCourant compteCourant= new CompteCourant();%>
+								<%CompteEpargne compteEpargne=new CompteEpargne();%>
+								<%for (Compte compte : listeCompte){%>
+								<%if (compte instanceof CompteCourant){	%>
+								<% compteCourant=(CompteCourant) compte;}%>
+								<%if (compte instanceof CompteEpargne){	%>
+								<% compteEpargne=(CompteEpargne) compte;}%>
+								<% }%>
+								
+								<p>Numéro compte : <%=compteCourant.getNumCompte()%></p>
 
 								<table class="table">
 									<thead>
@@ -131,7 +143,7 @@
 						<div class="card">
 							<div class="card-body ">
 								<h5>Compte epargne</h5>
-								<p>Numéro compte : 1234567890</p>
+								<p>Numéro compte : <%=compteEpargne.getNumCompte()%></p>
 
 								<table class="table">
 									<thead>

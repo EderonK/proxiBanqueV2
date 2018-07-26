@@ -29,16 +29,10 @@ public class MaServlet2 extends HttpServlet{
 
 		
 		
-		
-		
 		String id=request.getParameter("id");
 		
 		HttpSession maSession = request.getSession();	
 		maSession.setAttribute("idClient", id);
-		System.out.println();
-		
-		
-		
 		
 		
 		
