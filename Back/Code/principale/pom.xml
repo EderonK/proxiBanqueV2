@@ -27,5 +27,6 @@
   <modules>
   	<module>domaine</module>
     <module>dao</module>
+	<module>service</module>
   </modules>
 </project>
