@@ -54,7 +54,8 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 	
 	public ElementBase lireElementById(String id)
 	{
-		String requete = "SELECT * FROM " + this.getNomTable() +" WHERE " + this.getNomIdentifiant() + "=" + id + ";";		
+		String requete = "SELECT * FROM " + this.getNomTable() +" WHERE " + this.getNomIdentifiant() +  " = '" + id + "';";
+		
 		ResultSet rs = this.executeQuery(requete);
 		
 		ElementBase element = null;
