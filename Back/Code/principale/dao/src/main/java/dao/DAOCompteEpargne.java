@@ -68,7 +68,7 @@ public class DAOCompteEpargne extends DAOGenerique<CompteEpargne>
 	@Override
 	public String getUpdate(CompteEpargne compteEpargne)
 	{
-		return "nom = '" + compteEpargne.getNumCompte() + "', prenom =  '" + compteEpargne.getSolde() + "', clan =  '" + compteEpargne.getDateOuverture() + "', etreinte =  " + compteEpargne.getCarteBancaire() + "', etreinte =  " + compteEpargne.getTauxRemuneration();		
+		return "numCompte = '" + compteEpargne.getNumCompte() + "', solde =  '" + compteEpargne.getSolde() + "', dateOuverture =  '" + compteEpargne.getDateOuverture() + "', carteBancaire =  " + compteEpargne.getCarteBancaire() + "', tauxRemuneration =  " + compteEpargne.getTauxRemuneration();		
 	}
 	
 	@Override
