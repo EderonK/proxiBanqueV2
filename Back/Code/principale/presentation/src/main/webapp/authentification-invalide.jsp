@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Proxi Banque - Index</title>
+<title>Proxi Banque - Authentification invalide</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
 	integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/app.css">
-<script type="text/javascript" src="js/javascript.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 	<div
@@ -21,11 +21,11 @@
 
 		<div class="flex-column collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav nav-fill w-100">
-				<li class="nav-item"><a class="navbar-brand" href="index.html">
+				<li class="nav-item"><a class="navbar-brand" href="index.jsp">
 						<img src="img/logo.png" width="120" height="60">
 				</a></li>
 				<li class="nav-item w-75"><a class="navbar-brand"
-					href="index.html">PROXIBANQUE</a></li>
+					href="index.jsp">PROXIBANQUE</a></li>
 				<li class="nav-item w-25"><span id="dateTimeText"
 					class="navbar-text"></span></li>
 			</ul>
@@ -33,26 +33,14 @@
 		<!-- end navbar-collapse -->
 	</div>
 	<!-- end navbar -->
-	<!-- form-signin card -->
-	<div class="form-signin card">
-		<h5 class="card-header card-header-custom text-center" >Authentification</h5>
-		<div class="card-body">
-			<form class="form-signin" method="post" action="authentification">
-				<div class="form-group">
-					<label>Identifiant</label> <input type="text" class="form-control"
-						name="usernameInput" placeholder="Entrez votre identifiant"
-						required />
-				</div>
-				<div class="form-group">
-					<label>Mot de passe</label> <input type="password"
-						class="form-control" name="passwordInput"
-						placeholder="Entrez votre mot de passe" required />
-				</div>
-				<button type="submit" class="btn btn-primary" action="accueil.jsp">Connexion</button>
-			</form>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Oups! Echec de l'authentification!</h1>
+			<p class="lead">Identifiant ou mot de passe invalide. Veuillez
+				reessayer.</p>
+			<a class="btn btn-lg btn-primary" href="index.jsp">S'identifier</a>
 		</div>
-		<!-- end card-body -->
 	</div>
-	<!-- end form-signin card -->
 </body>
 </html>

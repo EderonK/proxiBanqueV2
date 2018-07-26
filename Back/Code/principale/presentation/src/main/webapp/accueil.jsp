@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="css/app.css">
 <script type="text/javascript" src="js/javascript.js"></script>
 </head>
+<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
+<%   String prenomDuConseiller = (String) session.getAttribute( "PrenomConseiller" ) ;	%>
 <body>
 	<div
 		class="navbar navbar-expand-md navbar-dark bg-dark mb-3 navbar-custom">
@@ -31,8 +33,7 @@
 				</a></li>
 				<li class="nav-item w-75"><a class="navbar-brand"
 					href="index.jsp">PROXIBANQUE</a></li>
-				<li class="nav-item"><span class="navbar-text">Bonjour
-						Douglas</span></li>
+				<li class="nav-item"><span class="navbar-text">Bonjour <%=prenomDuConseiller %></span></li>
 			</ul>
 			<ul class="navbar-nav nav-fill w-100">
 				<li class="nav-item w-75"><a class="navbar-brand"
@@ -44,7 +45,7 @@
 		<!-- end navbar-collapse -->
 	</div>
 	<!-- end navbar -->
-<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
+
 	<div class="container">
 		<div class="card">
 			<div class="card-header card-header-custom text-center">

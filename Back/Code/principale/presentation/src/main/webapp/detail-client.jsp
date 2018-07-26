@@ -17,6 +17,11 @@
 <script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
+<%   String prenomDuConseiller = (String) session.getAttribute( "PrenomConseiller" ) ;	%>
+<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
+<%String numero = (String) session.getAttribute( "idClient" ) ; %>
+<%int num= Integer.parseInt(numero);  %>
+<%num=num-1; %>
 	<div
 		class="navbar navbar-expand-md navbar-dark bg-dark mb-3 navbar-custom">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -33,14 +38,14 @@
 				<li class="nav-item w-75"><a class="navbar-brand"
 					href="index.jsp">PROXIBANQUE</a></li>
 				<li class="nav-item"><span class="navbar-text">Bonjour
-						Douglas</span></li>
+						<%=prenomDuConseiller %></span></li>
 			</ul>
 			<ul class="navbar-nav nav-fill w-100">
 				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Acceuil</a>
 				</li>
 				<li class="nav-item"><a class="nav-link active"
 					href="detail-client.jsp">Détail client</a></li>
-				<li class="nav-item"><a class="nav-link" href="edition.jsp">Edition</a>
+				<li class="nav-item"><a class="nav-link" href="Edition">Edition</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="virement.jsp">Virement</a>
 				</li>
@@ -51,10 +56,7 @@
 		<!-- end navbar-collapse -->
 	</div>
 	<!-- end navbar -->
-<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
-<%String numero = (String) session.getAttribute( "idClient" ) ; %>
-<%int num= Integer.parseInt(numero);  %>
-<%num=num-1; %>
+
 	<div class="container">
 		<div class="card mb-3">
 			<div class="card-header card-header-custom text-center">

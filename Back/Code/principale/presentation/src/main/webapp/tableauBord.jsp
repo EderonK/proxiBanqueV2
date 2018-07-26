@@ -2,13 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Proxi Banque - Index</title>
+<title>Proxi Banque - Tableau de bord des virements</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
 	integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/app.css">
 <script type="text/javascript" src="js/javascript.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/pie.js">
+	
+</script>
 </head>
 <body>
 	<div
@@ -32,27 +37,24 @@
 		</div>
 		<!-- end navbar-collapse -->
 	</div>
-	<!-- end navbar -->
-	<!-- form-signin card -->
-	<div class="form-signin card">
-		<h5 class="card-header card-header-custom text-center" >Authentification</h5>
+	<!-- form-tableauBord card -->
+	<div class="form-tableauBord card">
+		<h5 class="card-header card-header-custom text-center">TABLEAU DE
+			BORD DES VIREMENTS</h5>
 		<div class="card-body">
-			<form class="form-signin" method="post" action="authentification">
-				<div class="form-group">
-					<label>Identifiant</label> <input type="text" class="form-control"
-						name="usernameInput" placeholder="Entrez votre identifiant"
-						required />
-				</div>
-				<div class="form-group">
-					<label>Mot de passe</label> <input type="password"
-						class="form-control" name="passwordInput"
-						placeholder="Entrez votre mot de passe" required />
-				</div>
-				<button type="submit" class="btn btn-primary" action="accueil.jsp">Connexion</button>
-			</form>
+			<legend>Il y a eu X virements pour ce mois-ci pour un total
+				de Y euros</legend>
+			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 		</div>
 		<!-- end card-body -->
 	</div>
-	<!-- end form-signin card -->
+	<!-- end form-tableauBord card -->
+
+	<!-- Footer -->
+	<footer class="footer footer-custom text-right">
+		<button type="submit" class="btn btn-primary" action="index.jsp">Déconnexion</button>
+	</footer>
+	<!-- Footer -->
 </body>
+
 </html>

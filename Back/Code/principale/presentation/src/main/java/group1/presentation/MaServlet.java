@@ -61,6 +61,8 @@ import domaine.main.Utilisateur;
 
 		ClientService clientService = new ClientService();
 	
+		
+		
 		HttpSession maSession = request.getSession();		
 
 		
@@ -73,15 +75,16 @@ import domaine.main.Utilisateur;
 		
 		if (conseiller!= null) {
 			ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
-			
+			String prenomConseiller= conseiller.getPrenom();
 			
 			maSession.setAttribute("listeClient", listeClient);
+			maSession.setAttribute("PrenomConseiller", prenomConseiller);
 			 dispatcher = request.getRequestDispatcher("accueil.jsp");
 			
 			
 			
 		} else {
-			 dispatcher = request.getRequestDispatcher("index.jsp");
+			 dispatcher = request.getRequestDispatcher("authentification-invalide.jsp");
 		}
 		dispatcher.forward(request, response);
 		}
