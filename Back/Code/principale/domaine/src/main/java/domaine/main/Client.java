@@ -1,7 +1,11 @@
 package domaine.main;
 
 import java.util.ArrayList;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 public class Client
 {	
 	//Attributs
