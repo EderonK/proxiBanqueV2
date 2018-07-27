@@ -1,16 +1,27 @@
 Scénario 1 :
 
-L'orsque le programme verifie un identifiant et un mot de passe correspondants
-a un conseiller le programme recupere la meme chose que lorsque l'application
-cherche a accéder aux informations de ce gerant.
+Lorsque le programme verifie un identifiant et un mot de passe correspondants
+à un conseiller le programme recupere la meme chose que lorsque l'application
+cherche à accéder aux informations de ce gerant.
 
 Scénario 2 :
 
-L'orsque le programme verifie un identifiant et un mot de passe correspondants
-a un gerant le programme recupere la meme chose que lorsque l'application
-cherche a accéder aux informations de ce conseiller.
+Lorsque le programme verifie un identifiant et un mot de passe correspondants
+à un gerant le programme recupere la meme chose que lorsque l'application
+cherche à accéder aux informations de ce conseiller.
 
 Scénario 3 :
 
-L'orsque le programme verifie un identifiant et un mot de passe ne correspondants
-ni a un gerant, ni a un conseiller, le programme ne recupere aucune information.
+Lorsque le programme verifie un identifiant et un mot de passe ne correspondants
+ni à un gerant, ni à un conseiller, le programme ne recupere aucune information.
+
+Scénario 4:
+
+Lorsque le programme consulte un client d'un conseiller. Le conseiller attribué
+à ce dernier (via "idConseiller")est bien le conseiller en question
+
+
+Scénario 5:
+
+Lorsque le programme consulte la liste des virements, il ne trouve pas de 
+virement non rattaché à un compte (coté débiteur).

@@ -84,13 +84,13 @@ public class DAOVirement extends DAOGenerique<Virement>
 	@Override
 	public String getValeurs(Virement virement)
 	{
-		return "('" + virement.getIdVirement() + "', '" + virement.getMontant() + "', '" + virement.getNumCompte() +  "', '" + virement.getNumCompteReceveur() +")";
+		return "('" + virement.getIdVirement() + "', '" + virement.getMontant() + "', '" + virement.getNumCompte().getNumCompte() +  "', '" + virement.getNumCompteReceveur().getNumCompte() +")";
 	}
 
 	@Override
 	public String getUpdate(Virement virement)
 	{
-		return "idVirement = '" + virement.getIdVirement() +"montant = '" + virement.getMontant() + "', numCompte =  '" + virement.getNumCompte() + "', numCompteReceveur =  '" + virement.getNumCompteReceveur();
+		return "idVirement = '" + virement.getIdVirement() +"montant = '" + virement.getMontant() + "', numCompte =  '" + virement.getNumCompte().getNumCompte() + "', numCompteReceveur =  '" + virement.getNumCompteReceveur().getNumCompte();
 	}
 
 	@Override

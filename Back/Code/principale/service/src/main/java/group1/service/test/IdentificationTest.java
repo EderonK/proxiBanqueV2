@@ -23,14 +23,12 @@ public class IdentificationTest extends TestCase
 	}
 	
 	@Test public void testIdentificationConseillerValide()
-	{
-		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse"), daoConseiller.lireElementById("c1"));
-		
-		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getPrenom(), daoGerant.lireElementById("5").getPrenom());
-		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getNom(), daoGerant.lireElementById("5").getNom());
-		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getIdentifiant(), daoGerant.lireElementById("5").getIdentifiant());
-		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getMotDePasse(), daoGerant.lireElementById("5").getMotDePasse());
-		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getClass(), daoGerant.lireElementById("5").getClass());
+	{		
+		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse").getPrenom(), daoConseiller.lireElementById("c1").getPrenom());
+		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse").getNom(), daoConseiller.lireElementById("c1").getNom());
+		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse").getIdentifiant(), daoConseiller.lireElementById("c1").getIdentifiant());
+		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse").getMotDePasse(), daoConseiller.lireElementById("c1").getMotDePasse());
+		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse").getClass(), daoConseiller.lireElementById("c1").getClass());
 	}
 	
 	@Test public void testIdentificationNonValide()
