@@ -47,8 +47,7 @@
 					href="detail-client.jsp">Détail client</a></li>
 				<li class="nav-item"><a class="nav-link" href="edition.jsp">Edition</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="virement.jsp">Virement</a>
-				</li>
+				
 				<li class="nav-item"><span id="dateTimeText"
 					class="navbar-text"></span></li>
 			</ul>
