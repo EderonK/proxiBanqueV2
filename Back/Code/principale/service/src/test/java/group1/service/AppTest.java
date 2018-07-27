@@ -35,4 +35,13 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
+    
+    public void testConseillerClient() {
+		//fail("Le client n'est pas rattaché à ce conseiller");
+	}
+    
+    public void testBDDVirement() {
+		//fail ("il y a des virements qui ne sont pas rattachés à un compte");
+	}
 }
