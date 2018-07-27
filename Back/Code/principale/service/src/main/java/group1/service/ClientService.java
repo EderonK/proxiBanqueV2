@@ -18,6 +18,10 @@ public class ClientService {
 		return conseiller.getListClients();	
 	}
 	
+	public void modifierClientById(int id, Client client){
+		daoClient.modifierElementById(id,client);
+	}
+	
 	
 	
 	/*public void modifierClient(Client client) {

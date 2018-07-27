@@ -63,7 +63,9 @@ import domaine.main.Utilisateur;
 	
 		
 		
-		HttpSession maSession = request.getSession();		
+		HttpSession maSession = request.getSession();	
+		maSession.setAttribute("login", login);
+		maSession.setAttribute("pwd", pwd);
 
 		
 	
