@@ -24,15 +24,19 @@ Si le Gérant s'identifie il est directement envoyé à son tableau de bord.
 
 Si un conseiller s'identifie il est envoyé à sa liste de clients. liste à partir de laquelle 
 il peut accéder aux détails clients et aux autres fonctionnalités. 
-Si on mofie un client le conseiller doit se déconnecter puis se reconnecter pour voir la 
+Si on modifie un client le conseiller doit se déconnecter puis se reconnecter pour voir la 
 modfification sur son écran.
 
 
 SOURCES
 
-...
+Disponibles dans Back/Code/
 
 DIVERS
+
+Le virement n'est pas disponible pour cette version.
+le diagramme des virements n'est pas disponible pour cette version.
+les ecrans d'erreur 404 et nulll pointer ne sont pas disponibles pour cette version.
 
 Pour tout malfonctionnement, réclamation ou suggestion, merci de nous contacter via l'adresse Email
 plmtoulouse2018@gmail.com
