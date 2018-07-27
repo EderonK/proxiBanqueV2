@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import domaine.main.Client;
 import domaine.main.Conseiller;
+import domaine.main.Gerant;
 import group1.service.ClientService;
 
 import group1.service.IdentificationService;
@@ -56,8 +57,19 @@ import domaine.main.Utilisateur;
 		IdentificationService identificationService = new IdentificationService();
 		
 
+		Utilisateur utilisateur = identificationService.verficationMotDePasse(login, pwd);
 		
-		Conseiller conseiller = (Conseiller) identificationService.verficationMotDePasse(login, pwd);
+		Conseiller conseiller = null;
+		Gerant gerant = null;
+		
+		if(utilisateur.getClass().equals(Gerant.class))
+		{
+			conseiller = (Conseiller) utilisateur;
+		}
+		else if(utilisateur.getClass().equals(Conseiller.class))
+		{
+			gerant = (Gerant) utilisateur;
+		}
 
 		ClientService clientService = new ClientService();
 	
@@ -73,24 +85,30 @@ import domaine.main.Utilisateur;
 
 		
 		
-		if (conseiller!= null) {
+		if (gerant!= null)
+		{
+			 dispatcher = request.getRequestDispatcher("accueilGerant.jsp");			
+		}
+		if (conseiller!= null)
+		{
 			ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
 			String prenomConseiller= conseiller.getPrenom();
 			
 			maSession.setAttribute("listeClient", listeClient);
 			maSession.setAttribute("PrenomConseiller", prenomConseiller);
 			 dispatcher = request.getRequestDispatcher("accueil.jsp");
+		
 			
 			
-			
-		} else {
+		}
+		else
+		{
 			 dispatcher = request.getRequestDispatcher("authentification-invalide.jsp");
 		}
 		dispatcher.forward(request, response);
 		}
-
+		
 	}
-
 
 
 
