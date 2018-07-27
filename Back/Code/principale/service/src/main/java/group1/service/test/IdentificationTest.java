@@ -23,9 +23,7 @@ public class IdentificationTest extends TestCase
 	}
 	
 	@Test public void testIdentificationConseillerValide()
-	{
-		assertEquals(this.identServ.verficationMotDePasse("c1", "monmotdepasse"), daoConseiller.lireElementById("c1"));
-		
+	{		
 		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getPrenom(), daoGerant.lireElementById("5").getPrenom());
 		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getNom(), daoGerant.lireElementById("5").getNom());
 		assertEquals(this.identServ.verficationMotDePasse("c1", "supermdp").getIdentifiant(), daoGerant.lireElementById("5").getIdentifiant());
