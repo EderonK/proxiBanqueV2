@@ -68,7 +68,7 @@ public class DAOCompteCourant extends DAOGenerique<CompteCourant>
 	@Override
 	public String getUpdate(CompteCourant compteCourant)
 	{
-		return "nom = '" + compteCourant.getNumCompte() + "', prenom =  '" + compteCourant.getSolde() + "', clan =  '" + compteCourant.getDateOuverture() + "', etreinte =  " + compteCourant.getCarteBancaire() + "', etreinte =  " + compteCourant.getDecouvertMax();		
+		return "numCompte = '" + compteCourant.getNumCompte() + "', solde =  '" + compteCourant.getSolde() + "', dateOuverture =  '" + compteCourant.getDateOuverture() + "', carteBancaire =  " + compteCourant.getCarteBancaire() + "', decouvertMax =  " + compteCourant.getDecouvertMax();		
 	}
 	
 	@Override

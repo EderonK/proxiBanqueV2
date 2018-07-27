@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Comptes")
-public class MaServlet2 extends HttpServlet{
+@WebServlet("/Edition")
+public class ServletEdition extends HttpServlet {
 
-	public MaServlet2() {
+	
+	public ServletEdition() {
 		super();
 	}
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		traitement(request,response);
 	}
@@ -28,17 +28,11 @@ public class MaServlet2 extends HttpServlet{
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		
-		String id=request.getParameter("id");
-		
-		HttpSession maSession = request.getSession();	
-		maSession.setAttribute("idClient", id);
-		
-		
-		
-		RequestDispatcher   dispatcher = request.getRequestDispatcher("detail-client.jsp");
+		RequestDispatcher   dispatcher = request.getRequestDispatcher("edition.jsp");
 		dispatcher.forward(request, response);	
 	}
 		
 
 }
+
+

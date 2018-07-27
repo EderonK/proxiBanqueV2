@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 juil. 2018 à 10:38
+-- Généré le :  jeu. 26 juil. 2018 à 14:59
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `proxibanque` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `proxibanque`;
+
 -- --------------------------------------------------------
 
 --
@@ -47,7 +48,9 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 INSERT INTO `client` (`idClient`, `Nom`, `Prenom`, `Adresse`, `email`, `idConseiller`) VALUES
 (1, 'Martin', 'Jean', '5 chemin de la Crabe, 31200 Toulouse', 'jean.martin@objis.com', 'c1'),
-(2, 'Alonzo', 'Helena', '12 place de la gare, Seville', 'helena.alonzo@sogeti.es', 'c1');
+(2, 'Alonzo', 'Helena', '12 place de la gare, Seville', 'helena.alonzo@sogeti.es', 'c1'),
+(3, 'Raspoutine', 'Joseph', '12 rue Lovemachine, Toulouse 31000', 'russianqueen@gmail.com', 'c1'),
+(4, 'Staline', 'Joseph', '11 rue du Goulag, Toulouse 31500', 'moustache@yahoo.fr', 'c1');
 
 -- --------------------------------------------------------
 
@@ -73,6 +76,8 @@ CREATE TABLE IF NOT EXISTS `comptecourant` (
 
 INSERT INTO `comptecourant` (`numCompte`, `solde`, `dateOuverture`, `carteBancaire`, `decouvertMax`, `idClient`) VALUES
 ('123', 1000, '01/02/16', '1200021', 2000, 2),
+('444', 50000, '10/12/2001', 'RussianQueen', 3000, 3),
+('777', 12000, '04/05/2008', 'rouge', 0, 4),
 ('d66d4', 23, '16/10/15', 'f444fe', 100, 1);
 
 -- --------------------------------------------------------
@@ -99,7 +104,9 @@ CREATE TABLE IF NOT EXISTS `compteepargne` (
 
 INSERT INTO `compteepargne` (`numCompte`, `solde`, `dateOuverture`, `carteBancaire`, `tauxRemuneration`, `idClient`) VALUES
 ('455', 32566, '30/09/10', 'sxdd08', 5, 2),
-('mlls56', 5000, '23/06/18', 'j200jh', 4, 1);
+('mlls56', 5000, '23/06/18', 'j200jh', 4, 1),
+('petitponey', 10200, '12/12/2012', 'petitrouge', 3, 4),
+('rararas', 60000, '18/08/2001', 'nopoison', 5, 3);
 
 -- --------------------------------------------------------
 
@@ -122,7 +129,8 @@ CREATE TABLE IF NOT EXISTS `conseiller` (
 
 INSERT INTO `conseiller` (`identifiant`, `Nom`, `Prenom`, `motDePasse`) VALUES
 ('c1', 'Smith', 'Dan', 'monmotdepasse'),
-('c2', 'Howard', 'Bill', 'mypassword');
+('c2', 'Howard', 'Bill', 'mypassword'),
+('c3', 'Raspoutine', 'Lovemachine', 'love');
 
 -- --------------------------------------------------------
 
@@ -158,24 +166,30 @@ CREATE TABLE IF NOT EXISTS `virement` (
   `numCompte` varchar(30) NOT NULL,
   `numCompteReceveur` varchar(30) NOT NULL,
   `montant` float NOT NULL,
-  PRIMARY KEY (`idVirement`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`idVirement`),
+  KEY `numCompte` (`numCompte`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `virement`
 --
 
 INSERT INTO `virement` (`idVirement`, `numCompte`, `numCompteReceveur`, `montant`) VALUES
-(1, '123', '5000', 200),
-(2, '123', 'd66d4', 10000),
-(3, '5000', '32566', 200),
-(4, 'd66d4', '123', 200),
-(5, '32566', '123', 5500),
-(6, '123', 'd66d4', 100),
-(7, '123', 'd66d4', 3000),
-(8, '5000', '123', 100),
-(9, '123', '32566', 300),
-(10, '123', '5000', 15000);
+(16, '123', '444', 2000),
+(17, '777', '123', 10000),
+(18, 'd66d4', '777', 121200),
+(19, '123', '444', 22),
+(20, 'd66d4', '444', 100),
+(21, '777', '123', 1500),
+(22, '123', '777', 900),
+(23, '444', '777', 600),
+(24, '123', '777', 10),
+(25, 'd66d4', '444', 24),
+(26, '123', '444', 3220),
+(27, 'd66d4', '444', 7800),
+(28, '123', '777', 1515),
+(29, 'd66d4', '123', 200),
+(30, '123', '444', 15);
 
 --
 -- Contraintes pour les tables déchargées
@@ -198,6 +212,12 @@ ALTER TABLE `comptecourant`
 --
 ALTER TABLE `compteepargne`
   ADD CONSTRAINT `compteepargne_ibfk_1` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`);
+
+--
+-- Contraintes pour la table `virement`
+--
+ALTER TABLE `virement`
+  ADD CONSTRAINT `virement_ibfk_1` FOREIGN KEY (`numCompte`) REFERENCES `comptecourant` (`numCompte`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

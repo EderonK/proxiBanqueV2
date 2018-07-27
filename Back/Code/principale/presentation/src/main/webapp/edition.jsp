@@ -1,3 +1,6 @@
+<%@ page  import= "java.util.ArrayList" %>
+<%@ page  import= "domaine.main.Client" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +14,12 @@
 <script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
+<%   String prenomDuConseiller = (String) session.getAttribute( "PrenomConseiller" ) ;	%>
+
+<%   ArrayList<Client> listeClient = (ArrayList<Client>) session.getAttribute( "listeClient" ) ;	%>
+<%String numero = (String) session.getAttribute( "idClient" ) ; %>
+<%int num= Integer.parseInt(numero);  %>
+<%num=num-1; %>
 	<div
 		class="navbar navbar-expand-md navbar-dark bg-dark mb-3 navbar-custom">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -27,15 +36,16 @@
 				<li class="nav-item w-75"><a class="navbar-brand"
 					href="index.jsp">PROXIBANQUE</a></li>
 				<li class="nav-item"><span class="navbar-text">Bonjour
-						Douglas</span></li>
+						<%=prenomDuConseiller %></span></li>
 			</ul>
 			<ul class="navbar-nav nav-fill w-100">
 				<li class="nav-item"><a class="nav-link" href="accueil.jsp">Acceuil</a>
 				</li>
-				<li class="nav-item"><a class="nav-link active"
-					href="detail-client.jsp">Edition</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="detail-client.jsp">Détail client</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					href="detail-client.jsp">Edition</a></li>
+				
 				<li class="nav-item"><a class="nav-link" href="virement.jsp">Virement</a>
 				</li>
 				<li class="nav-item"><span id="dateTimeText"
@@ -52,23 +62,23 @@
 		<div class="card-body">
 			<form class="form-edition" method="post">
 				<div class="form-group">
-					<label>Nom</label> <input type="text" class="form-control"
-						name="nomInput" placeholder="Veuillez-saisir le nom du client"
+					<label>Veuillez-saisir le nouveau nom du client</label> <input type="text" class="form-control"
+						name="nomInput" value=<%=listeClient.get(num).getNom()%>
 						required />
 				</div>
 				<div class="form-group">
-					<label>Prenom</label> <input type="text" class="form-control"
-						name="prenomInput"
-						placeholder="Veuillez-saisir le prenom du client" required />
+					<label>Veuillez-saisir le nouveau prénom du client</label> <input type="text" class="form-control"
+						name="prenomInput" value=<%=listeClient.get(num).getPrenom()%>
+						 required />
 				</div>
 				<div class="form-group">
-					<label>Adresse</label> <input type="text" class="form-control"
+					<label>Veuillez-saisir la nouvelle adresse du client</label> <input type="text" class="form-control"
 						name="adresseInput"
-						placeholder="Veuillez-saisir l'adresse du client" required />
+						value="<%=listeClient.get(num).getAdresse()%>" required />
 				</div>
 				<div class="form-group">
-					<label>Email</label> <input type="text" class="form-control"
-						name="emailInput" placeholder="Veuillez-saisir l'email du client"
+					<label>Veuillez-saisir le nouvel email du client</label> <input type="text" class="form-control"
+						name="emailInput" value=<%=listeClient.get(num).getEmail()%>
 						required />
 				</div>
 				<div class="col-md-8 text-right">

@@ -23,7 +23,7 @@ public class DAOVirement extends DAOGenerique<Virement>
 	@Override
 	public String getAttributs()
 	{
-		return "(montant, numCompte, numCompteReceveur)";
+		return "(idVirement, montant, numCompte, numCompteReceveur)";
 	}
 
 	@Override
@@ -33,7 +33,8 @@ public class DAOVirement extends DAOGenerique<Virement>
 		Virement virement = new Virement();
 		try
 		{
-			virement.setMontant(rs.getInt("montant"));
+			virement.setIdVirement(rs.getInt("idVirement"));
+			virement.setMontant(rs.getDouble("montant"));
 			
 			String numCompteDonneur =rs.getString("numCompte");
 			String numCompteReceveur = rs.getString("numCompteReceveur");
@@ -83,18 +84,18 @@ public class DAOVirement extends DAOGenerique<Virement>
 	@Override
 	public String getValeurs(Virement virement)
 	{
-		return "('" + virement.getMontant() + "', '" + virement.getNumCompte() +  "', '" + virement.getNumCompteReceveur() +")";
+		return "('" + virement.getIdVirement() + "', '" + virement.getMontant() + "', '" + virement.getNumCompte().getNumCompte() +  "', '" + virement.getNumCompteReceveur().getNumCompte() +")";
 	}
 
 	@Override
 	public String getUpdate(Virement virement)
 	{
-		return "nom = '" + virement.getMontant() + "', prenom =  '" + virement.getNumCompte() + "', clan =  '" + virement.getNumCompteReceveur();
+		return "idVirement = '" + virement.getIdVirement() +"montant = '" + virement.getMontant() + "', numCompte =  '" + virement.getNumCompte().getNumCompte() + "', numCompteReceveur =  '" + virement.getNumCompteReceveur().getNumCompte();
 	}
 
 	@Override
 	public String getNomIdentifiant()
 	{
-		return "";
+		return "idVirement";
 	}
 }
