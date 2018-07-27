@@ -60,7 +60,7 @@
 	<div class="form-edition card">
 		<h5 class="card-header card-header-custom text-center">EDITION CLIENT</h5>
 		<div class="card-body">
-			<form class="form-edition" method="post">
+			<form class="form-edition" method="post" action="Edition">
 				<div class="form-group">
 					<label>Veuillez-saisir le nouveau nom du client</label> <input type="text" class="form-control"
 						name="nomInput" value=<%=listeClient.get(num).getNom()%>
@@ -78,12 +78,12 @@
 				</div>
 				<div class="form-group">
 					<label>Veuillez-saisir le nouvel email du client</label> <input type="text" class="form-control"
-						name="emailInput" value=<%=listeClient.get(num).getEmail()%>
+						name="emailInput" value="<%=listeClient.get(num).getEmail()%>"
 						required />
 				</div>
 				<div class="col-md-8 text-right">
-					<button id="button1id" name="button1id" class="btn btn-success">Valider</button>
-					<button id="button2id" name="button2id" class="btn btn-primary">Annuler</button>
+					<button id="button1id" name="button1id" class="btn btn-success" type="submit" >Valider</button>
+					<button id="button2id" name="button2id" class="btn btn-primary" action="edition.jsp">Annuler </button>
 				</div>
 			</form>
 		</div>

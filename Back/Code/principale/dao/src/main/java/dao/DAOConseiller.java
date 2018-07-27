@@ -4,15 +4,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import domaine.main.Conseiller;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 public class DAOConseiller extends DAOUtilisateur<Conseiller>
 {
+	/**
+	 * 
+	 * La - méthode getNomTable retourne la table des conseillers
+	 *
+	 */
 	@Override
 	public String getNomTable()
 	{
 		return "conseiller";
 	}
-	
+	/**
+	 * 
+	 * La - méthode traitementLectureElement(ResultSet rs) retourne les informations d'un conseiller
+	 *
+	 */
 	@Override
 	public Conseiller traitementLectureElement(ResultSet rs)
 	{

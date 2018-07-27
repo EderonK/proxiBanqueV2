@@ -1,10 +1,18 @@
 package domaine.main;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 @JsonSubTypes({ @JsonSubTypes.Type(value = CompteCourant.class), @JsonSubTypes.Type(value = CompteEpargne.class) })
 
+=======
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
+>>>>>>> 27ed5ff098d59060d7d297350909af6cd9ec3699
 public abstract class Compte
 {
 	//Attributs

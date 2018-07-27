@@ -1,5 +1,9 @@
 package group1.service;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 import java.util.ArrayList;
 
 import dao.DAOClient;
@@ -16,6 +20,10 @@ public class ClientService {
 	public ArrayList<Client> retournerListeClient(Conseiller conseiller){
 		
 		return conseiller.getListClients();	
+	}
+	
+	public void modifierClientById(int id, Client client){
+		daoClient.modifierElementById(id,client);
 	}
 	
 	
