@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 import domaine.main.Client;
 import domaine.main.Conseiller;
 import domaine.main.Gerant;
+import domaine.main.Virement;
 import group1.service.ClientService;
 
 import group1.service.IdentificationService;
-import domaine.main.Utilisateur;
+import group1.service.VirementService;
 
 
 	
@@ -50,60 +51,53 @@ import domaine.main.Utilisateur;
 		String pwd = request.getParameter("passwordInput");
 		
 		// Etape 2 : Soumettre les paramètres de la requête à la couche service et récupérer résultat
-		
-			
-
-		
+				
 		IdentificationService identificationService = new IdentificationService();
 		
-
-		Utilisateur utilisateur = identificationService.verficationMotDePasse(login, pwd);
+		Object utilisateur = identificationService.verficationMotDePasse(login, pwd);
 		
 		Conseiller conseiller = null;
 		Gerant gerant = null;
 		
-		if(utilisateur.getClass().equals(Gerant.class))
+		if(utilisateur.getClass() == Conseiller.class)
 		{
 			conseiller = (Conseiller) utilisateur;
 		}
-		else if(utilisateur.getClass().equals(Conseiller.class))
+		else if(utilisateur.getClass() == Gerant.class)
 		{
-			gerant = (Gerant) utilisateur;
+			gerant = (Gerant) utilisateur;			
 		}
-
-		ClientService clientService = new ClientService();
-	
-		
-		
-		HttpSession maSession = request.getSession();		
-
-		
 	
 		// Etape 3 : Réponse à l'utilisateur
 		
 		RequestDispatcher dispatcher;
 
-		
+		HttpSession maSession = request.getSession();
+		ClientService clientService = new ClientService();
 		
 		if (gerant!= null)
 		{
-			 dispatcher = request.getRequestDispatcher("accueilGerant.jsp");			
+			dispatcher = request.getRequestDispatcher("tableauBord.jsp");
+			
+			VirementService virementService = new VirementService();
+			ArrayList<Virement> listeVirement = virementService.recupererListeVirements();
+			int nbVirement = listeVirement.size();
+			double montantTotal = virementService.sommeMontantsVirement(listeVirement);
+			maSession.setAttribute("nbVirement", nbVirement);
+			maSession.setAttribute("montantTotal", montantTotal);
 		}
-		if (conseiller!= null)
+		else if (conseiller!= null)
 		{
 			ArrayList<Client> listeClient = clientService.retournerListeClient(conseiller);
 			String prenomConseiller= conseiller.getPrenom();
 			
 			maSession.setAttribute("listeClient", listeClient);
 			maSession.setAttribute("PrenomConseiller", prenomConseiller);
-			 dispatcher = request.getRequestDispatcher("accueil.jsp");
-		
-			
-			
+			dispatcher = request.getRequestDispatcher("accueil.jsp");			
 		}
 		else
-		{
-			 dispatcher = request.getRequestDispatcher("authentification-invalide.jsp");
+		{			
+			dispatcher = request.getRequestDispatcher("authentification-invalide.jsp");
 		}
 		dispatcher.forward(request, response);
 		}

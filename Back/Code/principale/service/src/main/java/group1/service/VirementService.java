@@ -23,4 +23,16 @@ public class VirementService
 	{
 		daoVirement.creerElement(virement);
 	}
+	
+	public double sommeMontantsVirement(ArrayList<Virement> listeVirement)
+	{
+		double total = 0;
+		
+		for (Virement virement : listeVirement)
+		{
+			total = total + virement.getMontant();
+		}
+		
+		return total;
+	}
 }

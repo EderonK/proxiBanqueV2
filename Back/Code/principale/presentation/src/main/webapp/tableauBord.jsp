@@ -16,6 +16,8 @@
 </script>
 </head>
 <body>
+	<%   int nbVirement = (int) session.getAttribute( "nbVirement" ) ;	%>
+	<%   double montantTotal = (double) session.getAttribute( "montantTotal" ) ;	%>
 	<div
 		class="navbar navbar-expand-md navbar-dark bg-dark mb-3 navbar-custom">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -42,8 +44,8 @@
 		<h5 class="card-header card-header-custom text-center">TABLEAU DE
 			BORD DES VIREMENTS</h5>
 		<div class="card-body">
-			<legend>Il y a eu X virements pour ce mois-ci pour un total
-				de Y euros</legend>
+			<legend>Il y a eu <%=nbVirement%> virements ce mois-ci pour un total
+				de <%=montantTotal%> euros</legend>
 			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 		</div>
 		<!-- end card-body -->
