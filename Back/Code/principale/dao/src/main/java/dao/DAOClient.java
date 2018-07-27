@@ -122,7 +122,7 @@ public class DAOClient extends DAOGenerique<Client>
 	@Override
 	public String getUpdate(Client client)
 	{
-		return "idClient = '" + client.getIdClient() + "', nom =  '" + client.getNom() + "', prenom =  '" + client.getPrenom() + "', adresse =  " + client.getAdresse() + "', email =  " + client.getEmail();		
+		return "idClient = '" + client.getIdClient() + "', nom =  '" + client.getNom() + "', prenom =  '" + client.getPrenom() + "', adresse =  '" + client.getAdresse() + "', email =  '" + client.getEmail()+"'";		
 	}
 	/**
 	 *  
