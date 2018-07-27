@@ -45,7 +45,7 @@
 				</li>
 				<li class="nav-item"><a class="nav-link active"
 					href="detail-client.jsp">Détail client</a></li>
-				<li class="nav-item"><a class="nav-link" href="Edition">Edition</a>
+				<li class="nav-item"><a class="nav-link" href="edition.jsp">Edition</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="virement.jsp">Virement</a>
 				</li>

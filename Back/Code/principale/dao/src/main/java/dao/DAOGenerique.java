@@ -124,7 +124,7 @@ public abstract class DAOGenerique<ElementBase> implements IDAOGenerique<Element
 	
 	public void modifierElementById(int id, ElementBase element)
 	{
-		String requete = "UPDATE " + this.getNomTable() +" SET "+ this.getUpdate(element) + " WHERE id=" + id + ";";
+		String requete = "UPDATE " + this.getNomTable() +" SET "+ this.getUpdate(element) + " WHERE " + this.getNomIdentifiant() +  "=" + id + ";";
 		this.executeUpdate(requete);
 	}
 	

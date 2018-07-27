@@ -67,13 +67,17 @@ import group1.service.VirementService;
 		{
 			gerant = (Gerant) utilisateur;			
 		}
+		ClientService clientService = new ClientService();
+	
+		
+		
+		HttpSession maSession = request.getSession();	
+		maSession.setAttribute("login", login);
+		maSession.setAttribute("pwd", pwd);
 	
 		// Etape 3 : Réponse à l'utilisateur
 		
 		RequestDispatcher dispatcher;
-
-		HttpSession maSession = request.getSession();
-		ClientService clientService = new ClientService();
 		
 		if (gerant!= null)
 		{
