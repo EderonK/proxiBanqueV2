@@ -59,11 +59,11 @@ import group1.service.VirementService;
 		Conseiller conseiller = null;
 		Gerant gerant = null;
 		
-		if(utilisateur.getClass() == Conseiller.class)
+		if(utilisateur instanceof Conseiller)
 		{
 			conseiller = (Conseiller) utilisateur;
 		}
-		else if(utilisateur.getClass() == Gerant.class)
+		else if(utilisateur instanceof Gerant)
 		{
 			gerant = (Gerant) utilisateur;			
 		}
