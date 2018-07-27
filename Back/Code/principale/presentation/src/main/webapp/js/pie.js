@@ -4,9 +4,9 @@ function drawChart() {
   var data = google.visualization.arrayToDataTable([
 
     ['Task', 'Virements du mois'],
-    ['On un montant entre 0€ et 2000€',     50],
-    ['On un montant entre 2000€ et 7000€',      25],
-    ['On un montant supérieur a 7000€',  25],
+    ['On un montant entre 0Euros et 2000Euros',     50],
+    ['On un montant entre 2000Euros et 7000Euros',      25],
+    ['On un montant supérieur a 7000 Euros',  25],
 
   ]);
 
