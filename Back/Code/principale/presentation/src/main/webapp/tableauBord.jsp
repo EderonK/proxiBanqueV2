@@ -11,7 +11,7 @@
 <script type="text/javascript" src="js/javascript.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="js/pie.js">
+
 	
 </script>
 </head>
@@ -46,7 +46,7 @@
 		<div class="card-body">
 			<legend>Il y a eu <%=nbVirement%> virements ce mois-ci pour un total
 				de <%=montantTotal%> euros</legend>
-			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+			
 		</div>
 		<!-- end card-body -->
 	</div>
