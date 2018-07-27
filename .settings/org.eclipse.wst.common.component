@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="proxiBanqueV2">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/dao/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/domaine/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/presentation/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/rest/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/service/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Back/Code/principale/service/src/test/java"/>
+        <property name="context-root" value="proxiBanqueV2"/>
+        <property name="java-output-path" value="/proxiBanqueV2/Back/Code/principale/domaine/target/classes"/>
+    </wb-module>
+</project-modules>

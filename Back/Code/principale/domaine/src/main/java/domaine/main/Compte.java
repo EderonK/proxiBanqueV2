@@ -1,4 +1,9 @@
 package domaine.main;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
+@JsonSubTypes({ @JsonSubTypes.Type(value = CompteCourant.class), @JsonSubTypes.Type(value = CompteEpargne.class) })
 
 public abstract class Compte
 {
