@@ -1,5 +1,9 @@
 package domaine.main;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 import java.util.ArrayList;
 
 public class Conseiller extends Utilisateur

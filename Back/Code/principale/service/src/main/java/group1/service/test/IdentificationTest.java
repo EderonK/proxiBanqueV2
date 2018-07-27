@@ -1,5 +1,9 @@
 package group1.service.test;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 import org.junit.Test;
 
 import dao.DAOConseiller;

@@ -1,5 +1,9 @@
 package domaine.main;
-
+/**
+ * @author Groupe 1
+ * @version 0.1
+ *
+ */
 public abstract class Compte
 {
 	//Attributs
