@@ -27,7 +27,7 @@ public class DAOCompteCourant extends DAOGenerique<CompteCourant>
 	@Override
 	public String getNomTable()
 	{
-		return "compteCourant";
+		return "comptecourant";
 	}
 	/**
 	 *  

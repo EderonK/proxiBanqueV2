@@ -29,6 +29,6 @@
     <module>dao</module>
 	<module>service</module>
     <module>presentation</module>
-
+	<module>rest</module>
   </modules>
 </project>

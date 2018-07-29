@@ -25,7 +25,7 @@ public class DAOCompteEpargne extends DAOGenerique<CompteEpargne>
 	@Override
 	public String getNomTable()
 	{
-		return "compteEpargne";
+		return "compteepargne";
 	}
 	/**
 	 *  
